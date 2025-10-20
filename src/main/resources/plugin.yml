@@ -3,7 +3,7 @@ main: io.github.seggan.sfcalc.SFCalc
 version: ${version}
 author: Seggan
 depend: [Slimefun]
-api-version: 1.15
+api-version: 1.21
 
 commands:
   sfcalc:

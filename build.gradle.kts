@@ -6,28 +6,36 @@ plugins {
 repositories {
     mavenLocal()
     maven("https://jitpack.io/")
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://repo.maven.apache.org/maven2/")
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.16.5-R0.1-SNAPSHOT")
-    compileOnly("com.github.Slimefun:Slimefun4:RC-36")
+    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
+    compileOnly("com.github.SlimeFun-Lab:Slimefun4:3ea21da")
 
     implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("com.github.seggan:ErrorReporter-Java:1.1.0")
+    implementation("commons-lang:commons-lang:2.6")
 
     compileOnly("com.google.code.findbugs:jsr305:3.0.2")
-    compileOnly("org.projectlombok:lombok:1.18.20")
-    annotationProcessor("org.projectlombok:lombok:1.18.20")
+    compileOnly("org.projectlombok:lombok:1.18.38")
+    annotationProcessor("org.projectlombok:lombok:1.18.38")
 }
 
 group = "io.github.seggan.sfcalc"
 version = "UNOFFICIAL"
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_17
-    targetCompatibility = JavaVersion.VERSION_17
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+}
+
+tasks.processResources {
+    filesMatching("plugin.yml") {
+        expand("version" to project.version)
+    }
 }
 
 tasks.shadowJar {
