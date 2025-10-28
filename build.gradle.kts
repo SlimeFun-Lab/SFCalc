@@ -11,8 +11,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly("io.papermc.paper:paper-api:1.21.1-R0.1-SNAPSHOT")
-    compileOnly("com.github.SlimeFun-Lab:Slimefun4:3ea21da")
+    compileOnly("io.papermc.paper:paper-api:1.21.10-R0.1-SNAPSHOT")
+    compileOnly("com.github.SlimeFun-Lab:Slimefun4:6d5694e")
 
     implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("com.github.seggan:ErrorReporter-Java:1.1.0")
@@ -24,7 +24,7 @@ dependencies {
 }
 
 group = "io.github.seggan.sfcalc"
-version = "UNOFFICIAL"
+version = "2.0.0-UNOFFICIAL"
 
 java {
     toolchain {

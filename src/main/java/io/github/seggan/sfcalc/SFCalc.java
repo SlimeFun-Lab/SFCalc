@@ -28,15 +28,6 @@ public class SFCalc extends JavaPlugin implements Listener {
     public void onEnable() {
         instance = this;
 
-        //new BlobBuildUpdater(this, getFile(), "SFCalc").start();
-        String ver = getDescription().getVersion();
-        boolean hasBuildNumber = ver != null && ver.matches(".*\\d+.*");
-        if (hasBuildNumber && getConfig().getBoolean("auto-update", true)) {
-            new BlobBuildUpdater(this, getFile(), "SFCalc").start();
-        } else {
-            getLogger().info("Updater disabled for version " + ver);
-        }
-
         REPORTER = new ErrorReporter("Seggan", "SFCalc", () ->
                 "SFCalc " +
                         getDescription().getVersion() +
